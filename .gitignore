@@ -1,0 +1,35 @@
+# Project specific
+archives/
+
+# System
+.DS_Store
+
+# Editors
+*.sublime-workspace
+
+# logs
+npm-debug.log
+
+# dependencies
+node_modules
+
+# build
+.next
+.tmp
+dist
+
+
+# logs
+npm-debug.log
+
+# coverage
+.nyc_output
+coverage
+
+# editors
+.idea/*
+*.iml
+*.sublime-*
+
+# OS
+.DS_Store

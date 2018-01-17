@@ -1,0 +1,120 @@
+html, body {
+	margin: 0; padding: 0;
+}
+
+body {
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #f5f5f5;
+	color: #4d4d4d;
+}
+
+.todoapp {
+	margin: 30px auto 40px auto;
+	max-width: 550px;
+	display: flex;
+	flex-direction: column;
+}
+.header > h1 {
+	font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: #af2f2f26;
+}
+
+.header .new-todo {
+	background: #fff;
+	display: flex;
+	align-items: center;
+	font-size: 2em;
+}
+
+.header .new-todo .fa {
+	font-size: 1.4em;
+	color: #737373;
+	margin-left: 16px;
+	cursor: pointer;
+}
+
+.header .new-todo input {
+	border: none;
+	padding: 16px;
+	font-size: 1.2em;
+	color: #4d4d4d;
+}
+.header .new-todo input:focus {
+	outline: none;
+}
+
+.container {
+	background: #fff;
+}
+
+	.todo-list { /* ul */
+		list-style: none;
+		padding: 0;
+		border-top: 1px solid #e6e6e6;
+	}
+	.todo-list li {
+		border-bottom: 1px solid #ededed;
+		padding: 10px;
+		display: flex;
+	}
+	.todo-list li:last-child {
+	    border-bottom: none;
+	}
+	/* input caché par defaut*/
+	.todo-list li input.todo-edit {
+		display: none;
+	}
+	/* en mode edition je cache mon span */
+	.todo-list li span.edit {
+		display: none;
+	}
+	/* en mode edition j'affiche l'input */
+	.todo-list li span.edit ~ input {
+		display: block;
+	}
+	.todo-list li .delete-btn {
+		background: none;
+		border: none;
+		margin-left: auto;
+		cursor: pointer;
+		font-size: 1.4em;
+		color: #e6e6e6;
+	}
+
+.container footer {
+	border-top: 1px solid #e6e6e6;
+	display: flex;
+	padding: 20px;
+	align-items: center;
+	justify-content: center;
+}
+.container footer span {
+	margin-right: auto;
+}
+.container footer button {
+	background: none;
+	border: none;
+}
+.container footer button:focus {
+	outline: none;
+}
+.container footer button.active {
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid #af2f2f33;
+	border-radius: 3px;
+}
+
+.footer {
+	text-align: center;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+
+.model {
+	display: none;
+}
