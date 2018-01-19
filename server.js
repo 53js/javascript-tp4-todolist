@@ -8,9 +8,9 @@ console.log('please change your mysql root & password & database');
 // mysql configuration
 const connection = mysql.createConnection({
   host     : 'localhost',
-  user     : '',
-  password : '',
-  database : ''
+  user     : 'root',
+  password : 'azazaz26**',
+  database : 'todolist'
 });
 
 // Tester la connection à MySQL
@@ -26,6 +26,7 @@ connection.connect(function(err) {
 
 // express configuration
 const app = express();
+
 app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/app'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
@@ -80,16 +81,34 @@ app.post('/todos', function(request, response) {
 
 
 app.put('/todos/:id', function(request, response) {
+	console.log('PUT REQUEST');
 	let id = request.params.id;
 	let todo = request.body;
-	response.send(id + ' ' + JSON.stringify(todo));
+	console.log(todo);
+	let query = `UPDATE todo SET title = ?, active = ? WHERE id = ${id}`;
+
+	connection.query(query, [todo.title, Number(todo.active)], function (error, result, fields) {
+		if (error) {
+			response.json({ error: error });
+		}
+		response.json({ success : id });
+	});
+
 });
 
 app.delete('/todos/:id', function(request, response) {
+	console.log('DELETE REQUEST');
 	let id = request.params.id;
+	let query = `DELETE FROM todo WHERE id = ${id}`;
+	// let query = 'DELETE FROM todo WHERE id =' + id;
+	connection.query(query, function (error, result, fields) {
+		if (error) {
+			response.json({ error: error });
+		}
+		console.log(result);
+		response.json({ success : id });
+	});
 });
-
-
 
 app.listen(PORT);
 
